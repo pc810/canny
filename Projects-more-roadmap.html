@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="post.css">
+    <!-- <link rel="stylesheet" href="./bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body>div.container-fluid>div>div.col-9>div>div>div>a {
+            color: black;
+        }
+
+        body>div.container-fluid>div>div.col-9>div>div>div>a>div:hover {
+            transition: 1s ease-in-out forwards;
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        body>div.container-fluid>div>div.col-2>div:nth-child(2)>div>a {
+            text-decoration: none;
+            color: #868e96;
+        }
+
+        body>div.container-fluid>div>div.col-2>div:nth-child(2)>div>a:hover {
+            color: black;
+        }
+
+        .my-active {
+            color: black;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 12px 0px 0px 12px;
+            background-color: #f8f9fa;
+        }
+
+        .profile-item {
+            padding: 0.8rem;
+        }
+
+        body>div.container-fluid>div>div.col-10.bg-white>div>div.row>div.col-3.nunito.text-center>div:nth-child(4)>div>img {
+            max-height: 30px;
+        }
+
+        body {
+            background-color: #2e6dff;
+        }
+
+        .up-arrow {
+            color: #9b9b9bd4;
+        }
+
+        .up-arrow:hover {
+            color: #424242d4;
+        }        
+        body>div.container-fluid>div>div.col-10>div.row.mt-3>div>div>div.issue-wrapper.m-3.pt-4>div>div>a {
+            font-weight: 600;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['gantt'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function daysToMilliseconds(days) {
+            return days * 24 * 60 * 60 * 1000;
+        }
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Task ID');
+            data.addColumn('string', 'Task Name');
+            data.addColumn('date', 'Start Date');
+            data.addColumn('date', 'End Date');
+            data.addColumn('number', 'Duration');
+            data.addColumn('number', 'Percent Complete');
+            data.addColumn('string', 'Dependencies');
+
+            data.addRows([
+                ['Research', 'Find sources',
+                    new Date(2015, 0, 1), new Date(2015, 0, 5), null, 100, null],
+                ['Write', 'Write paper',
+                    null, new Date(2015, 0, 9), daysToMilliseconds(3), 25, 'Research,Outline'],
+                ['Cite', 'Create bibliography',
+                    null, new Date(2015, 0, 7), daysToMilliseconds(1), 20, 'Research'],
+                ['Complete', 'Hand in paper',
+                    null, new Date(2015, 0, 10), daysToMilliseconds(1), 0, 'Cite,Write'],
+                ['Outline', 'Outline paper',
+                    null, new Date(2015, 0, 6), daysToMilliseconds(1), 100, 'Research']
+            ]);
+
+            var options = {
+                height: 275
+            };
+
+            var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container-flex overflow-hidden" style="position: absolute;">
+        <svg class="img-fluid" id="SVGRoot" viewBox="0 0 1920 1080" height="1080px" width="1920px">
+            <g id="layer1">
+                <path id="rect1471" d="M -1.5805826,-0.33784389 H 1924.1805 L 1922.618,237.06845 -1.5805826,780 Z"
+                    style="opacity:1;fill:#2e6dff;fill-opacity:1;stroke:none;stroke-width:18.91005707;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke" />
+            </g>
+        </svg>
+    </div>
+
+    <header>
+        <nav class="navbar navbar-expand-lg container container-fluid-md">
+            <a class="navbar-brand nunito" href="#" style="font-size:2em;color:white;">Canny</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnavbar"
+                aria-controls="mainnavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars" style="transform: scale(1.3);"></i>
+            </button>
+
+            <div class="collapse navbar-collapse nunito" id="mainnavbar">
+                <ul class="navbar-nav  ml-auto" style="font-size: 1.1em;">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" style="color:white;">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color:white;">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color:white;">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row m-1">
+            <div class="col-2 wrapper-rounded" style="background-color: #f8f9fa;">
+                <!--Navigation wrapper-->
+                <div class="row">
+                    <div class="col-12">
+                        <img src="image/project.jpg" alt="project profile" class="img-fluid">
+                    </div>
+                    <div class="col-12 text-center">
+                        <h6>Wild Animals</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 m-3 " style="font-size: 1.1rem;">
+                        <a href="#" class="nunito my-active">
+                            <div class="row p-2">
+                                <div class="col-2">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="col-10">
+                                    Team
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="nunito">
+                            <div class="row p-2  my-active">
+                                <div class="col-2">
+                                    <i class="far fa-map"></i>
+                                </div>
+                                <div class="col-10">
+                                    Roadmap
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="nunito">
+                            <div class="row p-2">
+                                <div class="col-2">
+                                    <i class="fas fa-clipboard-list"></i>
+                                </div>
+                                <div class="col-10">
+                                    Board
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="nunito">
+                            <div class="row p-2">
+                                <div class="col-2 text-center">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <div class="col-10">
+                                    Add Issue
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 ">
+                <div class="container-flex p-4 bg-white wrapper-rounded" style="min-height: 450px;">
+                    <h1 class="nunito m-1">Gantt Chart</h1>
+                    <div id="chart_div" class="m-1 pt-5"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-4">
+                        <div class="container-flex  bg-white wrapper-rounded">
+                            <div class="row text-center pt-2">
+                                <div class="col-12">
+                                    <h3 class="nunito">Planned</h3>                                    
+                                </div>
+                            </div>
+                            <div class="issue-wrapper m-3 pt-4">
+                                <!--Issues-->
+
+                                <div class="row pb-3">
+                                    <div class="col-2">
+                                        <a href="#">
+                                            <div class="up-arrow text-center p-1"
+                                                style="border-radius: 5px;background-color: #c4c6c8a1;">
+                                                <i class="fas fa-caret-up" style="font-size: 2rem;"></i>
+                                            </div>
+                                        </a>
+                                        <h6 class="p-1">2K</h6>
+                                    </div>
+                                    <div class="col-10 nunito">
+                                        <a href="#">I can't find the leadership vs management snaps. Could you post them
+                                            somewhere please?</a>
+                                    </div>
+                                </div>
+                                <div class="row pb-3">
+                                    <div class="col-2">
+                                        <a href="#">
+                                            <div class="up-arrow text-center p-1"
+                                                style="border-radius: 5px;background-color: #c4c6c8a1;">
+                                                <i class="fas fa-caret-up" style="font-size: 2rem;"></i>
+                                            </div>
+                                        </a>
+                                        <h6 class="p-1">52K</h6>
+                                    </div>
+                                    <div class="col-10 nunito">
+                                        <a href="#">how can a non-technical student land a job at a startup?</a>
+                                    </div>
+                                </div>
+                                <div class="row pb-3">
+                                    <div class="col-2">
+                                        <a href="#">
+                                            <div class="up-arrow text-center p-1"
+                                                style="border-radius: 5px;background-color: #c4c6c8a1;">
+                                                <i class="fas fa-caret-up" style="font-size: 2rem;"></i>
+                                            </div>
+                                        </a>
+                                        <h6 class="p-1">1K</h6>
+                                    </div>
+                                    <div class="col-10 nunito">
+                                        <a href="#">how can a non-technical student land a job at a startup?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                            <div class="container-flex  bg-white wrapper-rounded">
+                                    <div class="row text-center pt-2">
+                                        <div class="col-12">
+                                            <h3 class="nunito">In Progress</h3>
+                                        </div>
+                                    </div>
+                                    <div class="issue-wrapper m-3 pt-4">
+                                        <!--Issues-->
+        
+                                        <div class="row pb-3">
+                                            <div class="col-2">
+                                                <a href="#">
+                                                    <div class="up-arrow text-center p-1"
+                                                        style="border-radius: 5px;background-color: #c4c6c8a1;">
+                                                        <i class="fas fa-caret-up" style="font-size: 2rem;"></i>
+                                                    </div>
+                                                </a>
+                                                <h6 class="p-1">2K</h6>
+                                            </div>
+                                            <div class="col-10 nunito">
+                                                <a href="#">I can't find the leadership vs management snaps. Could you post them
+                                                    somewhere please?</a>
+                                            </div>
+                                        </div>
+                                        <div class="row pb-3">
+                                            <div class="col-2">
+                                                <a href="#">
+                                                    <div class="up-arrow text-center p-1"
+                                                        style="border-radius: 5px;background-color: #c4c6c8a1;">
+                                                        <i class="fas fa-caret-up" style="font-size: 2rem;"></i>
+                                                    </div>
+                                                </a>
+                                                <h6 class="p-1">52K</h6>
+                                            </div>
+                                            <div class="col-10 nunito">
+                                                <a href="#">how can a non-technical student land a job at a startup?</a>
+                                            </div>
+                                        </div>
+                                        <div class="row pb-3">
+                                            <div class="col-2">
+                                                <a href="#">
+                                                    <div class="up-arrow text-center p-1"
+                                                        style="border-radius: 5px;background-color: #c4c6c8a1;">
+                                                        <i class="fas fa-caret-up" style="font-size: 2rem;"></i>
+                                                    </div>
+                                                </a>
+                                                <h6 class="p-1">1K</h6>
+                                            </div>
+                                            <div class="col-10 nunito">
+                                                <a href="#">how can a non-technical student land a job at a startup?</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="col-4">
+                            <div class="container-flex  bg-white wrapper-rounded">
+                                    <div class="row text-center pt-2">
+                                        <div class="col-12">
+                                            <h3 class="nunito">Complete</h3>
+                                        </div>
+                                    </div>
+                                    <div class="issue-wrapper m-3 pt-4">
+                                        <!--Issues-->
+        
+                                        <div class="row pb-3">
+                                            <div class="col-2">
+                                                <a href="#">
+                                                    <div class="up-arrow text-center p-1"
+                                                        style="border-radius: 5px;background-color: #c4c6c8a1;">
+                                                        <i class="fas fa-caret-up" style="font-size: 2rem;"></i>
+                                                    </div>
+                                                </a>
+                                                <h6 class="p-1">2K</h6>
+                                            </div>
+                                            <div class="col-10 nunito">
+                                                <a href="#">I can't find the leadership vs management snaps. Could you post them
+                                                    somewhere please?</a>
+                                            </div>
+                                        </div>
+                                        <div class="row pb-3">
+                                            <div class="col-2">
+                                                <a href="#">
+                                                    <div class="up-arrow text-center p-1"
+                                                        style="border-radius: 5px;background-color: #c4c6c8a1;">
+                                                        <i class="fas fa-caret-up" style="font-size: 2rem;"></i>
+                                                    </div>
+                                                </a>
+                                                <h6 class="p-1">52K</h6>
+                                            </div>
+                                            <div class="col-10 nunito">
+                                                <a href="#">how can a non-technical student land a job at a startup?</a>
+                                            </div>
+                                        </div>
+                                        <div class="row pb-3">
+                                            <div class="col-2">
+                                                <a href="#">
+                                                    <div class="up-arrow text-center p-1"
+                                                        style="border-radius: 5px;background-color: #c4c6c8a1;">
+                                                        <i class="fas fa-caret-up" style="font-size: 2rem;"></i>
+                                                    </div>
+                                                </a>
+                                                <h6 class="p-1">1K</h6>
+                                            </div>
+                                            <div class="col-10 nunito">
+                                                <a href="#">how can a non-technical student land a job at a startup?</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="./jquery/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

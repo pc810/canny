@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="post.css">
+    <!-- <link rel="stylesheet" href="./bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body>div.container-fluid>div>div.col-9>div>div>div>a {
+            color: black;
+        }
+
+        body>div.container-fluid>div>div.col-9>div>div>div>a>div:hover {
+            transition: 1s ease-in-out forwards;
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        body>div.container-fluid>div>div.col-2>div:nth-child(2)>div>a {
+            text-decoration: none;
+            color: #868e96;
+        }
+
+        body>div.container-fluid>div>div.col-2>div:nth-child(2)>div>a:hover {
+            color: black;
+        }
+
+        .my-active {
+            color: black;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 12px 0px 0px 12px;     
+            background-color: #f8f9fa;       
+        }
+
+        .profile-item {
+            padding: 0.8rem;
+        }
+
+        body>div.container-fluid>div>div.col-10.bg-white>div>div.row>div.col-3.nunito.text-center>div:nth-child(4)>div>img {
+            max-height: 30px;
+        }
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['gantt'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function daysToMilliseconds(days) {
+            return days * 24 * 60 * 60 * 1000;
+        }
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Task ID');
+            data.addColumn('string', 'Task Name');
+            data.addColumn('date', 'Start Date');
+            data.addColumn('date', 'End Date');
+            data.addColumn('number', 'Duration');
+            data.addColumn('number', 'Percent Complete');
+            data.addColumn('string', 'Dependencies');
+
+            data.addRows([
+                ['Research', 'Find sources',
+                    new Date(2015, 0, 1), new Date(2015, 0, 5), null, 100, null],
+                ['Write', 'Write paper',
+                    null, new Date(2015, 0, 9), daysToMilliseconds(3), 25, 'Research,Outline'],
+                ['Cite', 'Create bibliography',
+                    null, new Date(2015, 0, 7), daysToMilliseconds(1), 20, 'Research'],
+                ['Complete', 'Hand in paper',
+                    null, new Date(2015, 0, 10), daysToMilliseconds(1), 0, 'Cite,Write'],
+                ['Outline', 'Outline paper',
+                    null, new Date(2015, 0, 6), daysToMilliseconds(1), 100, 'Research']
+            ]);
+
+            var options = {
+                height: 275
+            };
+
+            var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container-flex overflow-hidden" style="position: absolute;">
+        <svg class="img-fluid" id="SVGRoot" viewBox="0 0 1920 1080" height="1080px" width="1920px">
+            <g id="layer1">
+                <path id="rect1471" d="M -1.5805826,-0.33784389 H 1924.1805 L 1922.618,237.06845 -1.5805826,780 Z"
+                    style="opacity:1;fill:#2e6dff;fill-opacity:1;stroke:none;stroke-width:18.91005707;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke" />
+            </g>
+        </svg>
+    </div>
+
+    <header>
+        <nav class="navbar navbar-expand-lg container container-fluid-md">
+            <a class="navbar-brand nunito" href="#" style="font-size:2em;color:white;">Canny</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnavbar"
+                aria-controls="mainnavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars" style="transform: scale(1.3);"></i>
+            </button>
+
+            <div class="collapse navbar-collapse nunito" id="mainnavbar">
+                <ul class="navbar-nav  ml-auto" style="font-size: 1.1em;">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" style="color:white;">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color:white;">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color:white;">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row m-1">
+            <div class="col-2 wrapper-rounded" style="background-color: #f8f9fa;">
+                <!--Navigation wrapper-->
+                <div class="row">
+                    <div class="col-12">
+                        <img src="image/project.jpg" alt="project profile" class="img-fluid">
+                    </div>
+                    <div class="col-12 text-center">
+                        <h6>Wild Animals</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 m-3 " style="font-size: 1.1rem;">
+                        <a href="#" class="nunito my-active">
+                            <div class="row my-active p-2">
+                                <div class="col-2">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="col-10" >
+                                    Team
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="nunito">
+                            <div class="row p-2 ">
+                                <div class="col-2">
+                                    <i class="far fa-map"></i>
+                                </div>
+                                <div class="col-10">
+                                    Roadmap
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="nunito">
+                            <div class="row p-2">
+                                <div class="col-2">
+                                    <i class="fas fa-clipboard-list"></i>
+                                </div>
+                                <div class="col-10">
+                                    Board
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="nunito">
+                            <div class="row p-2">
+                                <div class="col-2 text-center">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <div class="col-10">
+                                    Add Issue
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 ">
+                <div class="container-flex p-4 bg-white wrapper-rounded" >
+                    <h3 class="nunito mb-3">Team</h3>
+                    <!-- wrapper for add member -->
+                    <div>
+                        <button class="btn btn-outline-primary align-items-center" data-toggle="modal"
+                            data-target="#addmembermodal">
+                            <i class="fas fa-user-plus pr-2"></i>
+                            Add Member
+                        </button>
+                        <button class="btn btn-outline-dark align-items-center" data-toggle="modal"
+                            data-target="#addrolemodal">
+                            <i class="fas fa-user-plus pr-2"></i>
+                            Add Roles
+                        </button>
+                        <!-- The Member Modal -->
+                        <div class="modal" id="addmembermodal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Add Team Members</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <div class="input-fields m-2 pb-4">
+                                            <label for="email">Email ID</label>
+                                            <input type="text" name="email" id="email" value="priyank@gmail.com" />
+                                        </div>
+                                        <div class="input-fields">
+                                            <label for="role">Role</label>
+                                            <select name="role" id="role" multiple>
+                                                <option value="Role1">Role1</option>
+                                                <option value="Role2">Role2</option>
+                                                <option value="Role3">Role3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Add </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- The role Modal -->
+                        <div class="modal" id="addrolemodal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Add Role</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <div class="input-fields m-2 pb-4">
+                                            <label for="rolename">Role</label>
+                                            <input type="text" name="rolename" id="rolename" placeholder="Enter" />
+                                        </div>                                        
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Add </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!--wrapper for members-->
+                    <div class="row mt-5">
+                        <div class="col-12 text-center">
+                            <div class="row pb-3">
+                                <div class="col-3">
+                                    <h5>Name</h5>
+                                </div>
+                                <div class="col-3">
+                                    <h5>Email</h5>
+                                </div>
+                                <div class="col-3">
+                                    <h5>Role(s)</h5>
+                                </div>
+                                <div class="col-3">
+                                    <h5>Action</h5>
+                                </div>
+                            </div>
+                            <div class="row nunito">
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center"
+                                            style="font-size: 1.1rem;font-weight: 600;">
+                                            <img src="image/profile.jpg" alt="profile" style="width: 50px;"
+                                                class="circle-profile">
+                                            Bruce Wayne
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center pt-1">
+                                            brucelovealred@wayne.com
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center pt-1">
+                                            Admin, Role 1
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <button type="button" class="btn btn-outline-primary">Edit Roles</button>
+                                        <button type="button" class="btn btn-outline-danger">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row nunito">
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center"
+                                            style="font-size: 1.1rem;font-weight: 600;">
+                                            <img src="https://www.rollingstone.com/wp-content/uploads/2018/06/rs-27709-20130611-superman-x624-1370963561.jpg?resize=900,600&w=450"
+                                                alt="profile" style="width: 50px;" class="circle-profile">
+                                            Clark Kent
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center pt-1">
+                                            Clark@Kent.com
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center pt-1">
+                                            Role 1, Role 2
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <button type="button" class="btn btn-outline-primary">Edit Roles</button>
+                                        <button type="button" class="btn btn-outline-danger">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row nunito">
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center"
+                                            style="font-size: 1.1rem;font-weight: 600;">
+                                            <img src="data:image/jpeg;base64,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"
+                                                alt="profile" style="width: 50px;" class="circle-profile">
+                                            Arthur Flake
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center pt-1">
+                                            Joker@Gotham.com
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center pt-1">
+                                            Role 3
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <button type="button" class="btn btn-outline-primary">Edit Roles</button>
+                                        <button type="button" class="btn btn-outline-danger">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row nunito">
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center"
+                                            style="font-size: 1.1rem;font-weight: 600;">
+                                            <img src="image/profile.jpg" alt="profile" style="width: 50px;"
+                                                class="circle-profile">
+                                            Bruce Wayne
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center pt-1">
+                                            brucelovealred@wayne.com
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center pt-1">
+                                            Admin, Role 1
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <button type="button" class="btn btn-outline-primary">Edit Roles</button>
+                                        <button type="button" class="btn btn-outline-danger">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row nunito">
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center"
+                                            style="font-size: 1.1rem;font-weight: 600;">
+                                            <img src="https://www.rollingstone.com/wp-content/uploads/2018/06/rs-27709-20130611-superman-x624-1370963561.jpg?resize=900,600&w=450"
+                                                alt="profile" style="width: 50px;" class="circle-profile">
+                                            Clark Kent
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center pt-1">
+                                            Clark@Kent.com
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center pt-1">
+                                            Role 1, Role 2
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <button type="button" class="btn btn-outline-primary">Edit Roles</button>
+                                        <button type="button" class="btn btn-outline-danger">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row nunito">
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center"
+                                            style="font-size: 1.1rem;font-weight: 600;">
+                                            <img src="data:image/jpeg;base64,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"
+                                                alt="profile" style="width: 50px;" class="circle-profile">
+                                            Arthur Flake
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center pt-1">
+                                            Joker@Gotham.com
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <div class="d-flex align-items-center pt-1">
+                                            Role 3
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="profile-item">
+                                        <button type="button" class="btn btn-outline-primary">Edit Roles</button>
+                                        <button type="button" class="btn btn-outline-danger">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="./jquery/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
